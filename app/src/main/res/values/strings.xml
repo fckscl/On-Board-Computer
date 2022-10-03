@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">On-board Computer</string>
+    <string name="temperature_on_board">Temperature On-Board:</string>
+    <string name="temperature_engine">Engine Temperature:</string>
+    <string name="voltage">Current Voltage:</string>
+</resources>
