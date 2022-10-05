@@ -1,22 +1,34 @@
 package com.example.on_boardcomputer
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class DisplayStateViewModel : ViewModel() {
     // TODO: Implement the ViewModel
-    private val _tOnBoard = MutableLiveData<Int>()
-    val tOnBoard: LiveData<Int>
+//    val count =0
+    private val _tOnBoard = MutableLiveData<Double>()
+    val tOnBoard: LiveData<Double>
         get() = _tOnBoard
-    private val _tEngine = MutableLiveData<Int>()
-    val tEngine: LiveData<Int>
+    private val _tEngine = MutableLiveData<Double>()
+    val tEngine: LiveData<Double>
         get() = _tEngine
-    private val _voltage = MutableLiveData<Int>()
-    val voltage: LiveData<Int>
+    private val _voltage = MutableLiveData<Double>()
+    val voltage: LiveData<Double>
         get() = _voltage
 
-    fun voltageChange(){
-        _voltage.value = (_voltage.value)?.plus(5)
+    init {
+        _voltage.value = 0.0
+        _tEngine.value = 0.0
+        _tOnBoard.value = 0.0
     }
+
+    fun voltageChange(){
+        Log.i("main","${_voltage.value}")
+        _voltage.value =_voltage.value?.plus(1)
+//        _voltage.postValue(5)
+
+    }
+
 }

@@ -3,4 +3,5 @@
     <string name="temperature_on_board">Temperature On-Board:</string>
     <string name="temperature_engine">Engine Temperature:</string>
     <string name="voltage">Current Voltage:</string>
+    <string name="zero">0</string>
 </resources>
