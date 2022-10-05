@@ -5,12 +5,13 @@
     <string name="voltage">Current Voltage:</string>
     <string name="zero">0</string>
     <!-- Preference Titles -->
-    <string name="messages_header">Messages</string>
-    <string name="sync_header">Sync</string>
+    <string name="on_board">Temperature On-Board</string>
+    <string name="engine">Temperature Of Engine</string>
+    <string name="voltage_settings">Voltage</string>
 
     <!-- Messages Preferences -->
-    <string name="signature_title">Your signature</string>
-    <string name="reply_title">Default reply action</string>
+    <string name="minimum">Set Minimum value</string>
+    <string name="maximum">Set Maximum Value</string>
 
     <!-- Sync Preferences -->
     <string name="sync_title">Sync email periodically</string>

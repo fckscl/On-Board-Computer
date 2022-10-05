@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.preference.PreferenceManager
 import com.example.on_boardcomputer.databinding.FragmentDisplayStateBinding
 import com.jjoe64.graphview.DefaultLabelFormatter
 import com.jjoe64.graphview.GraphView
@@ -60,9 +61,12 @@ class DisplayStateFragment : Fragment() {
 
         viewModel.voltage.observe(viewLifecycleOwner, Observer { newVoltage ->
             binding.valueVoltage.text = newVoltage.toString()
+            val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext() /* Activity context */)
+            val name = sharedPreferences.getString("min_voltage", "")?.toDouble()
             seriesVoltage.appendData(
                 DataPoint(Date(),
-                viewModel.voltage.value!!),
+                    name!!
+                /*viewModel.voltage.value!!*/),
                 true,
                 200)
             binding.graphVoltage.addSeries(seriesVoltage)

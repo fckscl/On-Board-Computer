@@ -42,30 +42,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val navController = findNavController(R.id.myNavHostFragment)
-//        navController.navigate(R.id.action_fragment_display_state_to_settingsFragment)
         return NavigationUI.onNavDestinationSelected(item,
             navController)
                 || super.onOptionsItemSelected(item)
     }
-
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        when (item.itemId) {
-//            R.id.settings -> {
-//                // User chose the "Settings" item, show the app settings UI...
-//                Log.i("set", "settings")
-//                val navController = findNavController(R.id.myNavHostFragment)
-//                navController.navigate(R.id.action_fragment_display_state_to_settingsFragment)
-////                view.findNavController
-////                findNavController().navigate(R.id.action_main_to_fragment_display_state)
-////                val actListLauncher: ActivityResultLauncher<Intent> = RegisterForActivity()
-////                actListLauncher.launch(Intent(this, SettingsFragment::class.java))
-//            }
-//            else -> {
-//                // If we got here, the user's action was not recognized.
-//                // Invoke the superclass to handle it.
-//                super.onOptionsItemSelected(item)
-//            }
-//        }
-//        return true
-//    }
 }

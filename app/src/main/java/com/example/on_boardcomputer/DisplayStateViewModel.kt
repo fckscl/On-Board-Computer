@@ -19,6 +19,7 @@ class DisplayStateViewModel : ViewModel() {
         get() = _voltage
 
     init {
+
         _voltage.value = 0.0
         _tEngine.value = 0.0
         _tOnBoard.value = 0.0
