@@ -18,4 +18,8 @@
             android:id="@+id/action_main_to_fragment_display_state"
             app:destination="@id/fragment_display_state" />
     </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.on_boardcomputer.SettingsFragment"
+        android:label="SettingsFragment" />
 </navigation>

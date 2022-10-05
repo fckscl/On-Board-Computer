@@ -36,6 +36,7 @@ class MainFragment : Fragment() {
             Toast.makeText(context, "Hello Again", Toast.LENGTH_SHORT).show()
             it.findNavController().navigate(R.id.action_main_to_fragment_display_state)
         }
+//        setSupportActionBar(findViewById(R.id.my_toolbar))
         return binding.root
     }
 
