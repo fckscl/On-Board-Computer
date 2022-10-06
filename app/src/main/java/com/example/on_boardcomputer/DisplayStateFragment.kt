@@ -1,6 +1,8 @@
 package com.example.on_boardcomputer
 
 import android.annotation.SuppressLint
+import android.content.SharedPreferences
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -12,14 +14,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.preference.PreferenceManager
 import com.example.on_boardcomputer.databinding.FragmentDisplayStateBinding
-import com.jjoe64.graphview.DefaultLabelFormatter
-import com.jjoe64.graphview.GraphView
 import com.jjoe64.graphview.helper.DateAsXAxisLabelFormatter
-import com.jjoe64.graphview.series.BarGraphSeries
-import com.jjoe64.graphview.series.DataPoint
-import com.jjoe64.graphview.series.LineGraphSeries
-import java.text.DateFormat
-import java.util.*
 
 class DisplayStateFragment : Fragment() {
 
@@ -31,6 +26,7 @@ class DisplayStateFragment : Fragment() {
     }
 
     private val viewModel: DisplayStateViewModel by viewModels()
+    private lateinit var sharedPreferences: SharedPreferences
 
     @SuppressLint("SimpleDateFormat")
     override fun onCreateView(
@@ -43,34 +39,57 @@ class DisplayStateFragment : Fragment() {
             container,
             false
         )
-        val seriesEngine = LineGraphSeries<DataPoint>()
-        val seriesVoltage = LineGraphSeries<DataPoint>()
-        val seriesOnBoard = LineGraphSeries<DataPoint>()
+
+        Log.i("value", viewModel.voltage.value.toString())
+//        val seriesOnBoard = LineGraphSeries<DataPoint>()
         val graphes = listOf(binding.graphEngine, binding.graphOnBoard, binding.graphVoltage)
-        val serieses = listOf(seriesEngine, seriesOnBoard, seriesVoltage)
+        val serieses = listOf(viewModel.seriesEngine, viewModel.seriesOnBoard, viewModel.seriesVoltage)
+        val thresholds = listOf(
+            listOf(viewModel.seriesEngineMax, viewModel.seriesEngineMin),
+            listOf(viewModel.seriesOnBoardMax, viewModel.seriesOnBoardMin),
+            listOf(viewModel.seriesVoltageMax, viewModel.seriesVoltageMin))
+
         for (i in 0..2){
             graphes[i].gridLabelRenderer.numHorizontalLabels = 4
             graphes[i].gridLabelRenderer.labelFormatter = DateAsXAxisLabelFormatter(activity)
             graphes[i].viewport.isScalable = true
-            graphes[i].addSeries(serieses[i])
+            graphes[i].addSeries(serieses[i].value)
+            graphes[i].addSeries(thresholds[i][0].value)
+            thresholds[i][0].value?.color = Color.RED
+            thresholds[i][1].value?.color = Color.YELLOW
+            graphes[i].addSeries(thresholds[i][1].value)
         }
 
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext())
+
         binding.button.setOnClickListener{
-            viewModel.voltageChange()
+            val min = sharedPreferences.getString("min_voltage", "")?.toDouble()
+            val max = sharedPreferences.getString("max_voltage", "")?.toDouble()
+            viewModel.voltageChange(min!!, max!!)
+        }
+
+        binding.valueEngine.setOnClickListener {
+            val min = sharedPreferences.getString("min_engine", "")?.toDouble()
+            val max = sharedPreferences.getString("max_engine", "")?.toDouble()
+            viewModel.engineChange(min!!, max!!)
+        }
+
+        binding.valueOnBoard.setOnClickListener {
+            val min = sharedPreferences.getString("min_on_board", "")?.toDouble()
+            val max = sharedPreferences.getString("max_on_board", "")?.toDouble()
+            viewModel.onBoardChange(min!!, max!!)
         }
 
         viewModel.voltage.observe(viewLifecycleOwner, Observer { newVoltage ->
             binding.valueVoltage.text = newVoltage.toString()
-            val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext() /* Activity context */)
-            val name = sharedPreferences.getString("min_voltage", "")?.toDouble()
-            seriesVoltage.appendData(
-                DataPoint(Date(),
-                    name!!
-                /*viewModel.voltage.value!!*/),
-                true,
-                200)
-            binding.graphVoltage.addSeries(seriesVoltage)
-            Log.i("main", DateFormat.getTimeInstance().format(Date()))
+        })
+
+        viewModel.tEngine.observe(viewLifecycleOwner, Observer { newVoltage ->
+            binding.valueEngine.text = newVoltage.toString()
+        })
+
+        viewModel.tOnBoard.observe(viewLifecycleOwner, Observer { newVoltage ->
+            binding.valueOnBoard.text = newVoltage.toString()
         })
 
         return binding.root
