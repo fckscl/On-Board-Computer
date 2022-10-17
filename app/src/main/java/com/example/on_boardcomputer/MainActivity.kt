@@ -1,20 +1,15 @@
 package com.example.on_boardcomputer
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import androidx.activity.result.ActivityResultLauncher
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.on_boardcomputer.databinding.ActivityMainBinding
 import com.example.on_boardcomputer.ui.main.MainFragment
+import com.google.android.material.tabs.TabLayout
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,7 +25,26 @@ class MainActivity : AppCompatActivity() {
                 .commitNow()
         }
 
-        setSupportActionBar(findViewById(R.id.action_bar))
+        setSupportActionBar(binding.actionBar)
+
+        binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener
+        {
+            override fun onTabSelected(tab: TabLayout.Tab)
+            {
+                val navController = findNavController(R.id.myNavHostFragment)
+                navController.navigate(when (tab.position)
+                {
+                    0 -> R.id.main
+                    1 -> R.id.fragment_display_state
+                    2 -> R.id.settingsFragment
+                    else -> R.layout.fragment_main
+                })
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {}
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {}
+        })
 
     }
 
@@ -46,4 +60,29 @@ class MainActivity : AppCompatActivity() {
             navController)
                 || super.onOptionsItemSelected(item)
     }
+
+//    private fun setUpTabBar()
+//    {
+//        val adapter = PageAdapter(this, binding.tabLayout.tabCount)
+//        viewPager.adapter = adapter
+//
+//        viewPager.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback()
+//        {
+//            override fun onPageSelected(position: Int) {
+//                tabLayout.selectTab(tabLayout.getTabAt(position))
+//            }
+//        })
+//
+//        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener
+//        {
+//            override fun onTabSelected(tab: TabLayout.Tab)
+//            {
+//                viewPager.currentItem = tab.position
+//            }
+//
+//            override fun onTabUnselected(tab: TabLayout.Tab?) {}
+//
+//            override fun onTabReselected(tab: TabLayout.Tab?) {}
+//        })
+//    }
 }

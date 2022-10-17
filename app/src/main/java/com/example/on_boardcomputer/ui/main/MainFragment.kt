@@ -34,7 +34,7 @@ class MainFragment : Fragment() {
             false
         )
         binding.toast.setOnClickListener{
-            Toast.makeText(context, "Hello Again", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(context, "Hello Again", Toast.LENGTH_SHORT).show()
             it.findNavController().navigate(R.id.action_main_to_fragment_display_state)
             Log.i("settings", it.toString())
         }

@@ -41,7 +41,6 @@ class DisplayStateFragment : Fragment() {
         )
 
         Log.i("value", viewModel.voltage.value.toString())
-//        val seriesOnBoard = LineGraphSeries<DataPoint>()
         val graphes = listOf(binding.graphEngine, binding.graphOnBoard, binding.graphVoltage)
         val serieses = listOf(viewModel.seriesEngine, viewModel.seriesOnBoard, viewModel.seriesVoltage)
         val thresholds = listOf(
@@ -50,13 +49,14 @@ class DisplayStateFragment : Fragment() {
             listOf(viewModel.seriesVoltageMax, viewModel.seriesVoltageMin))
 
         for (i in 0..2){
-            graphes[i].gridLabelRenderer.numHorizontalLabels = 4
+            graphes[i].gridLabelRenderer.numHorizontalLabels = 10
             graphes[i].gridLabelRenderer.labelFormatter = DateAsXAxisLabelFormatter(activity)
             graphes[i].viewport.isScalable = true
-            graphes[i].addSeries(serieses[i].value)
-            graphes[i].addSeries(thresholds[i][0].value)
+            graphes[i].viewport.isScrollable = true
             thresholds[i][0].value?.color = Color.RED
             thresholds[i][1].value?.color = Color.YELLOW
+            graphes[i].addSeries(serieses[i].value)
+            graphes[i].addSeries(thresholds[i][0].value)
             graphes[i].addSeries(thresholds[i][1].value)
         }
 

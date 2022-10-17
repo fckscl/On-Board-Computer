@@ -62,23 +62,28 @@ class DisplayStateViewModel : ViewModel() {
         _tOnBoard.value = 0.0
     }
 
-    fun voltageChange(min: Double, max: Double){
-        _voltage.value =_voltage.value?.plus(1)
+    fun voltageChange(min: Double, max: Double) {
+        _voltage.value = _voltage.value?.plus(1)
         val currentDate = Date()
         _seriesVoltage.value?.appendData(
-                DataPoint(currentDate,
-                    _voltage.value!!),
-                true,
-                200)
+            DataPoint(
+                currentDate,
+                _voltage.value!!
+            ),
+            true,
+            200
+        )
         _seriesVoltageMin.value?.appendData(
-            DataPoint(currentDate,
+            DataPoint(
+                currentDate,
                 min
             ),
             true,
             200
         )
         _seriesVoltageMax.value?.appendData(
-            DataPoint(currentDate,
+            DataPoint(
+                currentDate,
                 max
             ),
             true,
@@ -86,23 +91,28 @@ class DisplayStateViewModel : ViewModel() {
         )
     }
 
-    fun engineChange(min: Double, max: Double){
-        _tEngine.value =_tEngine.value?.plus(1)
+    fun engineChange(min: Double, max: Double) {
+        _tEngine.value = _tEngine.value?.plus(1)
         val currentDate = Date()
         _seriesEngine.value?.appendData(
-            DataPoint(currentDate,
-                _tEngine.value!!),
+            DataPoint(
+                currentDate,
+                _tEngine.value!!
+            ),
             true,
-            200)
+            200
+        )
         _seriesEngineMin.value?.appendData(
-            DataPoint(currentDate,
+            DataPoint(
+                currentDate,
                 min
             ),
             true,
             200
         )
         _seriesEngineMax.value?.appendData(
-            DataPoint(currentDate,
+            DataPoint(
+                currentDate,
                 max
             ),
             true,
@@ -110,23 +120,28 @@ class DisplayStateViewModel : ViewModel() {
         )
     }
 
-    fun onBoardChange(min: Double, max: Double){
-        _tOnBoard.value =_tOnBoard.value?.plus(1)
+    fun onBoardChange(min: Double, max: Double) {
+        _tOnBoard.value = _tOnBoard.value?.plus(1)
         val currentDate = Date()
         _seriesOnBoard.value?.appendData(
-            DataPoint(currentDate,
-                _tOnBoard.value!!),
+            DataPoint(
+                currentDate,
+                _tOnBoard.value!!
+            ),
             true,
-            100)
+            100
+        )
         _seriesOnBoardMin.value?.appendData(
-            DataPoint(currentDate,
+            DataPoint(
+                currentDate,
                 min
             ),
             true,
             100
         )
         _seriesOnBoardMax.value?.appendData(
-            DataPoint(currentDate,
+            DataPoint(
+                currentDate,
                 max
             ),
             true,

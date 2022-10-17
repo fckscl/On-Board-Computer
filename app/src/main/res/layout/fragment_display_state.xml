@@ -27,7 +27,6 @@
             android:layout_marginTop="188dp"
             android:text="@string/temperature_engine"
             app:layout_constraintEnd_toEndOf="@+id/temperature_on_board"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/temperature_on_board" />
 
@@ -46,14 +45,12 @@
             android:id="@+id/button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="608dp"
             android:text="Button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/voltage"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintTop_toBottomOf="@+id/graphVoltage" />
+<!--            app:layout_constraintTop_toBottomOf="@+id/voltage"/>-->
 
         <TextView
             android:id="@+id/valueOnBoard"
@@ -82,7 +79,7 @@
             app:layout_constraintStart_toEndOf="@+id/temperature_on_board"
             app:layout_constraintTop_toTopOf="@+id/temperature_engine" />
 
-        <com.jjoe64.graphview.helper.GraphViewXML
+        <com.jjoe64.graphview.GraphView
             android:id="@+id/graphOnBoard"
             android:layout_width="0dp"
             android:layout_height="150dp"
@@ -92,12 +89,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/temperature_on_board"
-            app:layout_constraintVertical_bias="0.531"
             app:seriesColor="#ee0000"
-            app:seriesData="0=5;2=5;3=0;4=2"
             app:seriesType="line" />
 
-        <com.jjoe64.graphview.helper.GraphViewXML
+        <com.jjoe64.graphview.GraphView
             android:id="@+id/graphEngine"
             android:layout_width="0dp"
             android:layout_height="150dp"
@@ -107,9 +102,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/temperature_engine"
-            app:layout_constraintVertical_bias="0.619"
             app:seriesColor="#ee0000"
-            app:seriesData="0=5;2=5;3=0;4=2"
             app:seriesType="line" />
 
         <com.jjoe64.graphview.GraphView
@@ -117,13 +110,9 @@
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/button"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/voltage"
-            app:layout_constraintVertical_bias="0.315"
             app:seriesColor="#ee0000" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
