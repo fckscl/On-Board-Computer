@@ -6,7 +6,7 @@
     app:startDestination="@id/main">
     <fragment
         android:id="@+id/fragment_display_state"
-        android:name="com.example.on_boardcomputer.DisplayStateFragment"
+        android:name="com.example.on_boardcomputer.ui.display.DisplayStateFragment"
         android:label="GameFragment"
         tools:layout="@layout/fragment_display_state" >
         <action
@@ -24,9 +24,17 @@
         <action
             android:id="@+id/action_main_to_settingsFragment"
             app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_main_to_historyFragment"
+            app:destination="@id/historyFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.example.on_boardcomputer.SettingsFragment"
+        android:name="com.example.on_boardcomputer.util.SettingsFragment"
         android:label="SettingsFragment" />
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.example.on_boardcomputer.ui.history.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" />
 </navigation>

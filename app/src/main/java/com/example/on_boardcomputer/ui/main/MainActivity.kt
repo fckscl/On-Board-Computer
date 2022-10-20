@@ -1,4 +1,4 @@
-package com.example.on_boardcomputer
+package com.example.on_boardcomputer.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,8 +7,8 @@ import android.view.MenuItem
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
+import com.example.on_boardcomputer.R
 import com.example.on_boardcomputer.databinding.ActivityMainBinding
-import com.example.on_boardcomputer.ui.main.MainFragment
 import com.google.android.material.tabs.TabLayout
 
 class MainActivity : AppCompatActivity() {
@@ -36,8 +36,9 @@ class MainActivity : AppCompatActivity() {
                 {
                     0 -> R.id.main
                     1 -> R.id.fragment_display_state
-                    2 -> R.id.settingsFragment
-                    else -> R.layout.fragment_main
+                    3 -> R.id.settingsFragment
+                    2 -> R.id.historyFragment
+                    else -> R.id.main
                 })
             }
 

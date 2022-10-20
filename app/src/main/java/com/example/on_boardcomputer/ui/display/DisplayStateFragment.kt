@@ -1,4 +1,4 @@
-package com.example.on_boardcomputer
+package com.example.on_boardcomputer.ui.display
 
 import android.annotation.SuppressLint
 import android.content.SharedPreferences
@@ -12,8 +12,13 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.preference.PreferenceManager
+import com.example.on_boardcomputer.R
+import com.example.on_boardcomputer.database.StatDatabase
 import com.example.on_boardcomputer.databinding.FragmentDisplayStateBinding
+import com.example.on_boardcomputer.ui.history.HistoryViewModel
+import com.example.on_boardcomputer.ui.history.HistoryViewModelFactory
 import com.jjoe64.graphview.helper.DateAsXAxisLabelFormatter
 
 class DisplayStateFragment : Fragment() {
@@ -25,7 +30,7 @@ class DisplayStateFragment : Fragment() {
         fun newInstance() = DisplayStateFragment()
     }
 
-    private val viewModel: DisplayStateViewModel by viewModels()
+    private lateinit var viewModel: DisplayStateViewModel
     private lateinit var sharedPreferences: SharedPreferences
 
     @SuppressLint("SimpleDateFormat")
@@ -33,6 +38,12 @@ class DisplayStateFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val application = requireNotNull(this.activity).application
+        val dataSource = StatDatabase.getInstance(application).statDatabaseDao
+        val viewModelFactory = DisplayStateViewModelFactory(dataSource, application)
+        viewModel =
+            ViewModelProvider(
+                this, viewModelFactory)[DisplayStateViewModel::class.java]
         binding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_display_state,

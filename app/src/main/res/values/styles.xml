@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <style name="MainText">
+        <item name="android:textSize">22sp</item>
+        <item name="fontFamily">@font/open_sans_semibold</item>
+    </style>
+</resources>

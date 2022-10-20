@@ -1,13 +1,21 @@
-package com.example.on_boardcomputer
+package com.example.on_boardcomputer.ui.display
 
+import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.on_boardcomputer.database.MiddleStat
+import com.example.on_boardcomputer.database.StatDatabaseDao
 import com.jjoe64.graphview.series.DataPoint
 import com.jjoe64.graphview.series.LineGraphSeries
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import java.util.*
 
-class DisplayStateViewModel : ViewModel() {
+class DisplayStateViewModel(dataSource: StatDatabaseDao, application: Application) : ViewModel() {
+
+
     private val _tOnBoard = MutableLiveData<Double>()
     val tOnBoard: LiveData<Double>
         get() = _tOnBoard
@@ -148,4 +156,6 @@ class DisplayStateViewModel : ViewModel() {
             100
         )
     }
+
+
 }
