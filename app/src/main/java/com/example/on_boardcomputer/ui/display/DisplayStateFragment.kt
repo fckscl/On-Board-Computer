@@ -4,31 +4,23 @@ import android.annotation.SuppressLint
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.preference.PreferenceManager
 import com.example.on_boardcomputer.R
 import com.example.on_boardcomputer.database.StatDatabase
 import com.example.on_boardcomputer.databinding.FragmentDisplayStateBinding
-import com.example.on_boardcomputer.ui.history.HistoryViewModel
-import com.example.on_boardcomputer.ui.history.HistoryViewModelFactory
 import com.jjoe64.graphview.helper.DateAsXAxisLabelFormatter
 
 class DisplayStateFragment : Fragment() {
 
     private lateinit var binding: FragmentDisplayStateBinding
 //    private lateinit var series: LineGraphSeries<DataPoint>
-
-    companion object {
-        fun newInstance() = DisplayStateFragment()
-    }
 
     private lateinit var viewModel: DisplayStateViewModel
     private lateinit var sharedPreferences: SharedPreferences
@@ -43,15 +35,16 @@ class DisplayStateFragment : Fragment() {
         val viewModelFactory = DisplayStateViewModelFactory(dataSource, application)
         viewModel =
             ViewModelProvider(
-                this, viewModelFactory)[DisplayStateViewModel::class.java]
+                this, viewModelFactory).get(DisplayStateViewModel::class.java)
         binding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_display_state,
             container,
             false
         )
+        binding.displayStateViewModel = viewModel
+        binding.lifecycleOwner = this
 
-        Log.i("value", viewModel.voltage.value.toString())
         val graphes = listOf(binding.graphEngine, binding.graphOnBoard, binding.graphVoltage)
         val serieses = listOf(viewModel.seriesEngine, viewModel.seriesOnBoard, viewModel.seriesVoltage)
         val thresholds = listOf(
@@ -73,7 +66,15 @@ class DisplayStateFragment : Fragment() {
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext())
 
-        binding.button.setOnClickListener{
+        binding.btnStart.setOnClickListener{
+            viewModel.onStartTracking()
+        }
+
+        binding.btnEnd.setOnClickListener {
+            viewModel.onStopTracking()
+        }
+
+        binding.valueVoltage.setOnClickListener{
             val min = sharedPreferences.getString("min_voltage", "")?.toDouble()
             val max = sharedPreferences.getString("max_voltage", "")?.toDouble()
             viewModel.voltageChange(min!!, max!!)

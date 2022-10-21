@@ -22,4 +22,10 @@ interface StatDatabaseDao {
 
     @Query("SELECT * from mid_measuring_table ORDER BY statId DESC")
     fun getAll(): LiveData<List<MiddleStat>>
+
+    @Query("SELECT * from mid_measuring_table ORDER BY statId DESC LIMIT 1")
+    fun getCurrentMeasurement(): MiddleStat?
+
+    @Query("DELETE FROM mid_measuring_table")
+    suspend fun clear()
 }

@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="displayStateViewModel"
+            type="com.example.on_boardcomputer.ui.display.DisplayStateViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraint"
         style="@style/MainText"
@@ -46,16 +52,17 @@
             app:layout_constraintTop_toBottomOf="@+id/temperature_engine" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btn_start"
             style="@style/MainText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/start"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/button2"
+            app:layout_constraintEnd_toStartOf="@+id/btn_end"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/graphVoltage" />
+            app:layout_constraintTop_toBottomOf="@+id/graphVoltage"
+            android:enabled="@{displayStateViewModel.startButtonVisible}"/>
         <!--            app:layout_constraintTop_toBottomOf="@+id/voltage"/>-->
 
         <TextView
@@ -125,14 +132,15 @@
             app:seriesColor="#ee0000" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btn_end"
             style="@style/MainText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/end"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/button"
-            app:layout_constraintTop_toTopOf="@+id/button" />
+            app:layout_constraintStart_toEndOf="@+id/btn_start"
+            app:layout_constraintTop_toTopOf="@+id/btn_start"
+            android:enabled="@{displayStateViewModel.endButtonVisible}" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

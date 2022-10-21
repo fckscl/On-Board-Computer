@@ -33,5 +33,11 @@
     <string name="average_on_board">Average Temperature On Board: </string>
     <string name="average_engine">Average Temperature Of Engine: </string>
     <string name="time_measuring">Time Of Measurement: </string>
+    <string name="clear">Delete All Measurments</string>
+    <string name="last_record">Update Last Record</string>
+    <string name="data">"Data Of Repair: "</string>
+    <string name="price">"Price Of Repair: "</string>
+    <string name="update">Update</string>
+    <string name="name">Name of Repairing</string>
 
 </resources>

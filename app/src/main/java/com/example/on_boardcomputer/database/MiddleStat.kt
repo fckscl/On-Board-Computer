@@ -15,7 +15,7 @@ class MiddleStat (
     val startMeasuringMilli: Long = System.currentTimeMillis(),
 
     @ColumnInfo(name = "end_measuring_milli")
-    val endMeasuringMilli: Long = startMeasuringMilli,
+    var endMeasuringMilli: Long = startMeasuringMilli,
 
     @ColumnInfo(name = "mid_voltage")
     val midVoltage: Int = 0,

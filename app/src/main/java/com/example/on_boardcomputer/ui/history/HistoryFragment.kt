@@ -13,10 +13,6 @@ import com.example.on_boardcomputer.databinding.FragmentHistoryBinding
 
 class HistoryFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = HistoryFragment()
-    }
-
 //    private lateinit var viewModel: HistoryViewModel
     private lateinit var binding: FragmentHistoryBinding
 
@@ -29,7 +25,7 @@ class HistoryFragment : Fragment() {
         val viewModelFactory = HistoryViewModelFactory(dataSource, application)
         val historyViewModel =
             ViewModelProvider(
-                this, viewModelFactory)[HistoryViewModel::class.java]
+                this, viewModelFactory).get(HistoryViewModel::class.java)
         binding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_history,

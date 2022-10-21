@@ -1,20 +1,81 @@
 package com.example.on_boardcomputer.ui.display
 
 import android.app.Application
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import android.util.Log
+import androidx.lifecycle.*
 import com.example.on_boardcomputer.database.MiddleStat
 import com.example.on_boardcomputer.database.StatDatabaseDao
 import com.jjoe64.graphview.series.DataPoint
 import com.jjoe64.graphview.series.LineGraphSeries
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
+import kotlinx.coroutines.*
 import java.util.*
 
-class DisplayStateViewModel(dataSource: StatDatabaseDao, application: Application) : ViewModel() {
+class DisplayStateViewModel(
+    val dataSource: StatDatabaseDao,
+    application: Application
+) : AndroidViewModel(application) {
 
+    private var viewModelJob = Job()
+    private val uiScope = CoroutineScope(Dispatchers.Main +  viewModelJob)
+
+    private var startMeasurement = MutableLiveData<MiddleStat?>()
+
+    val startButtonVisible = Transformations.map(startMeasurement) {
+        null == it
+    }
+    val endButtonVisible = Transformations.map(startMeasurement) {
+        null != it
+    }
+
+    fun onStopTracking() {
+        uiScope.launch {
+            val oldMeasurement = startMeasurement.value ?: return@launch
+            oldMeasurement.endMeasuringMilli = System.currentTimeMillis()
+            update(oldMeasurement)
+        }
+    }
+
+    private suspend fun update(stat: MiddleStat) {
+        withContext(Dispatchers.IO) {
+            dataSource.update(stat)
+        }
+    }
+
+    private fun initializeTonight() {
+        uiScope.launch {
+            startMeasurement.value = getTonightFromDatabase()
+        }
+    }
+
+    fun onStartTracking() {
+        uiScope.launch {
+            val newMeasurement = MiddleStat()
+            insert(newMeasurement)
+            startMeasurement.value = getTonightFromDatabase()
+        }
+    }
+
+    private suspend fun insert(measurement: MiddleStat) {
+        withContext(Dispatchers.IO) {
+            dataSource.insert(measurement)
+        }
+    }
+
+    private suspend fun getTonightFromDatabase(): MiddleStat? {
+        return withContext(Dispatchers.IO) {
+            var measurement = dataSource.getCurrentMeasurement()
+
+            if (measurement?.endMeasuringMilli != measurement?.startMeasuringMilli) {
+                measurement = null
+            }
+            measurement
+        }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        viewModelJob.cancel()
+    }
 
     private val _tOnBoard = MutableLiveData<Double>()
     val tOnBoard: LiveData<Double>
@@ -56,6 +117,7 @@ class DisplayStateViewModel(dataSource: StatDatabaseDao, application: Applicatio
         get() = _seriesEngineMax
 
     init {
+        initializeTonight()
         _seriesVoltage.value = LineGraphSeries<DataPoint>()
         _seriesOnBoard.value = LineGraphSeries<DataPoint>()
         _seriesEngine.value = LineGraphSeries<DataPoint>()
