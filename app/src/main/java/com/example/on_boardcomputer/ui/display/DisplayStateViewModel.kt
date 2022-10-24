@@ -1,9 +1,8 @@
 package com.example.on_boardcomputer.ui.display
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.*
-import com.example.on_boardcomputer.database.MiddleStat
+import com.example.on_boardcomputer.database.AverageStat
 import com.example.on_boardcomputer.database.StatDatabaseDao
 import com.jjoe64.graphview.series.DataPoint
 import com.jjoe64.graphview.series.LineGraphSeries
@@ -18,7 +17,7 @@ class DisplayStateViewModel(
     private var viewModelJob = Job()
     private val uiScope = CoroutineScope(Dispatchers.Main +  viewModelJob)
 
-    private var startMeasurement = MutableLiveData<MiddleStat?>()
+    private var startMeasurement = MutableLiveData<AverageStat?>()
 
     val startButtonVisible = Transformations.map(startMeasurement) {
         null == it
@@ -32,10 +31,13 @@ class DisplayStateViewModel(
             val oldMeasurement = startMeasurement.value ?: return@launch
             oldMeasurement.endMeasuringMilli = System.currentTimeMillis()
             update(oldMeasurement)
+
+//            Log.i("check", "")
+            startMeasurement.value = null
         }
     }
 
-    private suspend fun update(stat: MiddleStat) {
+    private suspend fun update(stat: AverageStat) {
         withContext(Dispatchers.IO) {
             dataSource.update(stat)
         }
@@ -49,19 +51,19 @@ class DisplayStateViewModel(
 
     fun onStartTracking() {
         uiScope.launch {
-            val newMeasurement = MiddleStat()
+            val newMeasurement = AverageStat()
             insert(newMeasurement)
             startMeasurement.value = getTonightFromDatabase()
         }
     }
 
-    private suspend fun insert(measurement: MiddleStat) {
+    private suspend fun insert(measurement: AverageStat) {
         withContext(Dispatchers.IO) {
             dataSource.insert(measurement)
         }
     }
 
-    private suspend fun getTonightFromDatabase(): MiddleStat? {
+    private suspend fun getTonightFromDatabase(): AverageStat? {
         return withContext(Dispatchers.IO) {
             var measurement = dataSource.getCurrentMeasurement()
 

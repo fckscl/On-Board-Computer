@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import com.example.on_boardcomputer.R
 import com.example.on_boardcomputer.database.StatDatabase
 import com.example.on_boardcomputer.databinding.FragmentHistoryBinding
@@ -34,6 +35,20 @@ class HistoryFragment : Fragment() {
         )
         binding.lifecycleOwner = this
         binding.historyViewModel = historyViewModel
-        return inflater.inflate(R.layout.fragment_history, container, false)
+
+        val adapter =  AverageStatAdapter()
+        binding.listStat.adapter = adapter
+
+        historyViewModel.measurements.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                adapter.data = it
+            }
+        })
+
+        binding.btnClear.setOnClickListener {
+            historyViewModel.onClear()
+        }
+
+        return binding.root
     }
 }

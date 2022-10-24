@@ -4,6 +4,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.on_boardcomputer.ui.display.DisplayStateFragment
 import com.example.on_boardcomputer.ui.main.MainFragment
+import com.example.on_boardcomputer.ui.repair.RepairsFragment
 
 class PageAdapter(activity: FragmentActivity, private val tabCount: Int) : FragmentStateAdapter(activity)
 {
@@ -16,6 +17,7 @@ class PageAdapter(activity: FragmentActivity, private val tabCount: Int) : Fragm
             0 -> MainFragment()
             1 -> DisplayStateFragment()
             2 -> SettingsFragment()
+            3 -> RepairsFragment()
             else -> MainFragment()
         }
     }

@@ -23,9 +23,12 @@
     <string name="about">About</string>
     <string name="stat">Stat</string>
     <string name="settings">Settings</string>
+    <string name="history">History</string>
+    <string name="repairs">Repairs</string>
+
     <string name="start">Start</string>
     <string name="end">End</string>
-    <string name="history">history</string>
+
     <string name="last">History of last measurements:</string>
     <string name="start_measuring">Start of measurement: </string>
     <string name="end_measuring">End of measurement: </string>
@@ -33,11 +36,13 @@
     <string name="average_on_board">Average Temperature On Board: </string>
     <string name="average_engine">Average Temperature Of Engine: </string>
     <string name="time_measuring">Time Of Measurement: </string>
-    <string name="clear">Delete All Measurments</string>
+    <string name="clear">Delete All Measurements</string>
     <string name="last_record">Update Last Record</string>
     <string name="data">"Data Of Repair: "</string>
     <string name="price">"Price Of Repair: "</string>
     <string name="update">Update</string>
     <string name="name">Name of Repairing</string>
+    <string name="time">Measuring Time</string>
+    <string name="stats">"Average Stats: "</string>
 
 </resources>

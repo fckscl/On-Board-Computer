@@ -3,11 +3,9 @@ package com.example.on_boardcomputer.database
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.jjoe64.graphview.series.DataPoint
-import com.jjoe64.graphview.series.LineGraphSeries
 
 @Entity(tableName = "mid_measuring_table")
-class MiddleStat (
+class AverageStat (
     @PrimaryKey(autoGenerate = true)
     var statId: Long = 0L,
 

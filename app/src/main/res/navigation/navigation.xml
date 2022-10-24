@@ -37,4 +37,14 @@
         android:name="com.example.on_boardcomputer.ui.history.HistoryFragment"
         android:label="fragment_history"
         tools:layout="@layout/fragment_history" />
+    <fragment
+        android:id="@+id/repairsFragment"
+        android:name="com.example.on_boardcomputer.ui.repair.RepairsFragment"
+        android:label="fragment_repairs"
+        tools:layout="@layout/fragment_repairs" />
+    <fragment
+        android:id="@+id/recordingFragment"
+        android:name="com.example.on_boardcomputer.ui.repair.RecordingFragment"
+        android:label="fragment_recording"
+        tools:layout="@layout/fragment_recording" />
 </navigation>

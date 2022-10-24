@@ -2,21 +2,21 @@ package com.example.on_boardcomputer.util
 
 import android.annotation.SuppressLint
 import android.content.res.Resources
-import android.os.Build
 import android.text.Html
 import android.text.Spanned
-import androidx.core.text.HtmlCompat
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.example.on_boardcomputer.R
-import com.example.on_boardcomputer.database.MiddleStat
+import com.example.on_boardcomputer.database.AverageStat
 import java.text.SimpleDateFormat
 
 @SuppressLint("SimpleDateFormat")
 fun convertLongToDateString(systemTime: Long): String {
-    return SimpleDateFormat("EEEE MMM-dd-yyyy' Time: 'HH:mm")
+    return SimpleDateFormat("MMM-dd-yyyy' 'HH:mm")
         .format(systemTime).toString()
 }
 
-fun formatMeasurements(nights: List<MiddleStat>, resources: Resources): Spanned {
+fun formatMeasurements(nights: List<AverageStat>, resources: Resources): Spanned {
     val sb = StringBuilder()
     sb.apply {
         append(resources.getString(R.string.last))
@@ -45,3 +45,5 @@ fun formatMeasurements(nights: List<MiddleStat>, resources: Resources): Spanned 
     }
     return Html.fromHtml(sb.toString(), Html.FROM_HTML_MODE_LEGACY)
 }
+
+class TextItemViewHolder(val textView: TextView): RecyclerView.ViewHolder(textView)

@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
                 {
                     0 -> R.id.main
                     1 -> R.id.fragment_display_state
-                    3 -> R.id.settingsFragment
+                    3 -> R.id.repairsFragment
                     2 -> R.id.historyFragment
                     else -> R.id.main
                 })

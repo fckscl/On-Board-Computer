@@ -15,7 +15,7 @@ class HistoryViewModel(
     private var viewModelJob = Job()
     private val uiScope = CoroutineScope(Dispatchers.Main +  viewModelJob)
 
-    private val measurements = db.getAll()
+    val measurements = db.getAll()
 
     val measurementsString = Transformations.map(measurements){ item ->
         formatMeasurements(item, application.resources)

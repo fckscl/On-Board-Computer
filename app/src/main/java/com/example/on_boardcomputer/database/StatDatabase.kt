@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [MiddleStat::class], version = 3, exportSchema = false)
+@Database(entities = [AverageStat::class], version = 3, exportSchema = false)
 abstract class StatDatabase: RoomDatabase() {
     abstract val statDatabaseDao: StatDatabaseDao
 
