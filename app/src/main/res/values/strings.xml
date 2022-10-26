@@ -38,11 +38,13 @@
     <string name="time_measuring">Time Of Measurement: </string>
     <string name="clear">Delete All Measurements</string>
     <string name="last_record">Update Last Record</string>
-    <string name="data">"Data Of Repair: "</string>
-    <string name="price">"Price Of Repair: "</string>
+    <string name="data">Date Of Repair:</string>
+    <string name="price">Cost Of Repair:</string>
     <string name="update">Update</string>
-    <string name="name">Name of Repairing</string>
+    <string name="name">Type of Repair:</string>
     <string name="time">Measuring Time</string>
-    <string name="stats">"Average Stats: "</string>
+    <string name="stats">Average Stats:</string>
+    <string name="history_repairs">History Of Last Repairs</string>
+    <string name="add_repair">Add New Repair</string>
 
 </resources>
