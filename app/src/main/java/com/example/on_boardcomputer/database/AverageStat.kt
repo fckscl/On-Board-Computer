@@ -16,11 +16,11 @@ class AverageStat (
     var endMeasuringMilli: Long = startMeasuringMilli,
 
     @ColumnInfo(name = "mid_voltage")
-    val midVoltage: Int = 0,
+    var midVoltage: Double = 0.0,
 
     @ColumnInfo(name = "mid_on_board")
-    val midOnBoard: Int = 0,
+    var midOnBoard: Double = 0.0,
 
     @ColumnInfo(name = "mid_engine")
-    val midEngine: Int = 0,
+    var midEngine: Double = 0.0,
     )

@@ -27,9 +27,9 @@ class AverageStatAdapter: RecyclerView.Adapter<AverageStatAdapter.ViewHolder> ()
         holder.endTime.text = convertLongToDateString(item.endMeasuringMilli)
         val diff = item.endMeasuringMilli.minus(item.startMeasuringMilli)
         holder.duration.text = String.format("%d:%d:%d", diff / 1000 / 60 / 60, diff / 1000 / 60, diff / 1000)
-        holder.averageEngine.text = String.format("Engine: %d", item.midEngine)
-        holder.averageOnBoard.text = String.format("OnBoard: %d", item.midOnBoard)
-        holder.averageVoltage.text = String.format("Voltage: %d", item.midVoltage)
+        holder.averageEngine.text = String.format("Engine: %.3f", item.midEngine)
+        holder.averageOnBoard.text = String.format("OnBoard: %.3f", item.midOnBoard)
+        holder.averageVoltage.text = String.format("Voltage: %.3f", item.midVoltage)
 //TODO: Upgrade view holder
     }
 

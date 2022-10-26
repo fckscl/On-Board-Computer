@@ -30,6 +30,16 @@ class DisplayStateViewModel(
         uiScope.launch {
             val oldMeasurement = startMeasurement.value ?: return@launch
             oldMeasurement.endMeasuringMilli = System.currentTimeMillis()
+//            val low = _seriesEngine.value?.lowestValueY ?: 1.0
+            oldMeasurement.midVoltage = (_seriesVoltage.value?.highestValueY
+                ?.plus(_seriesVoltage.value?.lowestValueY ?: 1.0)
+                ?.div(2)) ?: 0.0
+            oldMeasurement.midEngine = (_seriesEngine.value?.highestValueY
+                ?.plus(_seriesEngine.value?.lowestValueY ?: 1.0)
+                ?.div(2)) ?: 0.0
+            oldMeasurement.midOnBoard = (_seriesOnBoard.value?.highestValueY
+                ?.plus(_seriesOnBoard.value?.lowestValueY ?: 1.0)
+                ?.div(2)) ?: 0.0
             update(oldMeasurement)
 
 //            Log.i("check", "")
