@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import com.example.on_boardcomputer.R
@@ -14,6 +15,7 @@ import com.example.on_boardcomputer.database.StatDatabase
 import com.example.on_boardcomputer.databinding.FragmentRecordingBinding
 import com.example.on_boardcomputer.ui.history.HistoryViewModel
 import com.example.on_boardcomputer.ui.history.HistoryViewModelFactory
+import java.util.*
 
 class RecordingFragment : Fragment() {
 
@@ -41,8 +43,15 @@ class RecordingFragment : Fragment() {
             container,
             false
         )
+        binding.lifecycleOwner = this
 
         binding.btnUpdate.setOnClickListener {
+            val today = Calendar.getInstance()
+            val datePicker = binding.datePicker
+
+//            viewModel.addRepair(binding.editTextTextRepairName.text.toString(),
+//                datePicker.maxDate,
+//                binding.editTextCost.text.toString().toInt())
 
             it.findNavController().navigate(R.id.repairsFragment)
         }

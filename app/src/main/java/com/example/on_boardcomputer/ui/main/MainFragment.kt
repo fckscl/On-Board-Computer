@@ -35,8 +35,9 @@ class MainFragment : Fragment() {
         )
         binding.toast.setOnClickListener{
 //            Toast.makeText(context, "Hello Again", Toast.LENGTH_SHORT).show()
-            it.findNavController().navigate(R.id.action_main_to_fragment_display_state)
+//            it.findNavController().navigate(R.id.action_main_to_fragment_display_state)
             Log.i("settings", it.toString())
+            Toast.makeText(context, "Device is not ready", Toast.LENGTH_SHORT).show()
         }
 //        setSupportActionBar(findViewById(R.id.my_toolbar))
         return binding.root

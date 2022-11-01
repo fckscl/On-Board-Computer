@@ -46,5 +46,7 @@
     <string name="stats">Average Stats:</string>
     <string name="history_repairs">History Of Last Repairs</string>
     <string name="add_repair">Add New Repair</string>
+    <string name="connect">Connect</string>
+    <string name="greetings">Hello! With this app you can watch for your car to broke. To start press the button below!</string>
 
 </resources>
