@@ -49,9 +49,9 @@ class RecordingFragment : Fragment() {
             val today = Calendar.getInstance()
             val datePicker = binding.datePicker
 
-//            viewModel.addRepair(binding.editTextTextRepairName.text.toString(),
-//                datePicker.maxDate,
-//                binding.editTextCost.text.toString().toInt())
+            viewModel.add(binding.editTextTextRepairName.text.toString(),
+                datePicker.maxDate,
+                binding.editTextCost.text.toString().toInt())
 
             it.findNavController().navigate(R.id.repairsFragment)
         }

@@ -17,10 +17,6 @@ class HistoryViewModel(
 
     val measurements = db.getAll()
 
-    val measurementsString = Transformations.map(measurements){ item ->
-        formatMeasurements(item, application.resources)
-    }
-
     fun onClear() {
         uiScope.launch {
             clear()

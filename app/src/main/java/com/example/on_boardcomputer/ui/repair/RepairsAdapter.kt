@@ -6,12 +6,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.on_boardcomputer.R
-import com.example.on_boardcomputer.database.AverageStat
-import com.example.on_boardcomputer.ui.history.AverageStatAdapter
+import com.example.on_boardcomputer.database.Repair
 import com.example.on_boardcomputer.util.convertLongToDateString
 
 class RepairsAdapter: RecyclerView.Adapter<RepairsAdapter.ViewHolder> (){
-    var data = listOf<AverageStat>()
+    var data = listOf<Repair>()
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -21,13 +20,16 @@ class RepairsAdapter: RecyclerView.Adapter<RepairsAdapter.ViewHolder> (){
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = data[position]
-        holder.startTime.text = convertLongToDateString(item.startMeasuringMilli)
-        holder.endTime.text = convertLongToDateString(item.endMeasuringMilli)
-        val diff = item.endMeasuringMilli.minus(item.startMeasuringMilli)
-        holder.duration.text = String.format("%d:%d:%d", diff / 1000 / 60 / 60, diff / 1000 / 60, diff / 1000)
-        holder.averageEngine.text = String.format("Engine: %d", item.midEngine)
-        holder.averageOnBoard.text = String.format("OnBoard: %d", item.midOnBoard)
-        holder.averageVoltage.text = String.format("Voltage: %d", item.midVoltage)
+        holder.nameRepair.text = item.nameOfRepair
+        holder.dateRepair.text = convertLongToDateString(item.dateOfRepair)
+        holder.costRepair.text = item.costOfRepair.toString()
+//        holder.startTime.text = convertLongToDateString(item.startMeasuringMilli)
+//        holder.endTime.text = convertLongToDateString(item.endMeasuringMilli)
+//        val diff = item.endMeasuringMilli.minus(item.startMeasuringMilli)
+//        holder.duration.text = String.format("%d:%d:%d", diff / 1000 / 60 / 60, diff / 1000 / 60, diff / 1000)
+//        holder.averageEngine.text = String.format("Engine: %d", item.midEngine)
+//        holder.averageOnBoard.text = String.format("OnBoard: %d", item.midOnBoard)
+//        holder.averageVoltage.text = String.format("Voltage: %d", item.midVoltage)
 //TODO: Upgrade view holder
     }
 
@@ -39,12 +41,15 @@ class RepairsAdapter: RecyclerView.Adapter<RepairsAdapter.ViewHolder> (){
     }
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        val startTime: TextView = itemView.findViewById(R.id.startTime)
-        val endTime: TextView = itemView.findViewById(R.id.endTime)
-        val duration: TextView = itemView.findViewById(R.id.duration)
-        val averageOnBoard: TextView = itemView.findViewById(R.id.averageOnBoard)
-        val averageEngine: TextView = itemView.findViewById(R.id.averageEngine)
-        val averageVoltage: TextView = itemView.findViewById(R.id.averageVoltage)
+        val nameRepair: TextView = itemView.findViewById(R.id.repairType)
+        val dateRepair: TextView = itemView.findViewById(R.id.repairDate)
+        val costRepair: TextView = itemView.findViewById(R.id.repairCost)
+//        val startTime: TextView = itemView.findViewById(R.id.startTime)
+//        val endTime: TextView = itemView.findViewById(R.id.endTime)
+//        val duration: TextView = itemView.findViewById(R.id.duration)
+//        val averageOnBoard: TextView = itemView.findViewById(R.id.averageOnBoard)
+//        val averageEngine: TextView = itemView.findViewById(R.id.averageEngine)
+//        val averageVoltage: TextView = itemView.findViewById(R.id.averageVoltage)
 
     }
 

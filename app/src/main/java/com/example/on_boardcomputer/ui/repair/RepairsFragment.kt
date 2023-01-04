@@ -7,8 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import com.example.on_boardcomputer.R
+import com.example.on_boardcomputer.database.Repair
 import com.example.on_boardcomputer.database.StatDatabase
 import com.example.on_boardcomputer.databinding.FragmentRepairsBinding
 import com.example.on_boardcomputer.ui.history.HistoryViewModel
@@ -42,6 +44,17 @@ class RepairsFragment : Fragment() {
             false
         )
         binding.lifecycleOwner = this
+
+        val adapter = RepairsAdapter()
+        binding.listRepairs.adapter = adapter
+//        adapter.data = viewModel.dataSource.getAll().value ?: listOf(Repair(nameOfRepair = "name", dateOfRepair = 123, costOfRepair = 11))
+//        adapter.data = viewModel.dataSource.getAll()
+        viewModel.measurements.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                adapter.data = it
+            }
+        })
+
 
         binding.btnAdd.setOnClickListener {
             it.findNavController().navigate(R.id.recordingFragment)
