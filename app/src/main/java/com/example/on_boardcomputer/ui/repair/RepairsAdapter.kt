@@ -21,7 +21,7 @@ class RepairsAdapter: RecyclerView.Adapter<RepairsAdapter.ViewHolder> (){
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = data[position]
         holder.nameRepair.text = item.nameOfRepair
-        holder.dateRepair.text = convertLongToDateString(item.dateOfRepair)
+        holder.dateRepair.text = item.dateOfRepair
         holder.costRepair.text = item.costOfRepair.toString()
 //        holder.startTime.text = convertLongToDateString(item.startMeasuringMilli)
 //        holder.endTime.text = convertLongToDateString(item.endMeasuringMilli)

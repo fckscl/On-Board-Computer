@@ -15,7 +15,7 @@ class RecordingViewModel (
 
     private val uiScope = CoroutineScope(Dispatchers.Main +  viewModelJob)
 
-    private suspend fun addRepair(name: String, date: Long, cost: Int){
+    private suspend fun addRepair(name: String, date: String, cost: Int){
         val repair = Repair(nameOfRepair = name, dateOfRepair = date, costOfRepair = cost)
         
         withContext(Dispatchers.IO) {
@@ -23,9 +23,10 @@ class RecordingViewModel (
         }
     }
 
-    fun add(name: String, date: Long, cost: Int){
+    fun add(name: String, day: Int, month: Int, year: Int, cost: Int){
+
         uiScope.launch {
-            addRepair(name, date, cost)
+            addRepair(name, "${day}-${month+1}-${year}", cost)
         }
     }
 

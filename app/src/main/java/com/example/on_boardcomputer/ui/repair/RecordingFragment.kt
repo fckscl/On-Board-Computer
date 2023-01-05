@@ -50,7 +50,9 @@ class RecordingFragment : Fragment() {
             val datePicker = binding.datePicker
 
             viewModel.add(binding.editTextTextRepairName.text.toString(),
-                datePicker.maxDate,
+                datePicker.dayOfMonth,
+                datePicker.month,
+                datePicker.year,
                 binding.editTextCost.text.toString().toInt())
 
             it.findNavController().navigate(R.id.repairsFragment)

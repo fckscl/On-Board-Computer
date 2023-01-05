@@ -15,15 +15,17 @@
 
         <TextView
             android:id="@+id/last_text"
-            style="@style/MainText"
+            style="@style/Header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:text="@string/last"
+            android:textAlignment="center"
             app:layout_constraintBottom_toTopOf="@+id/list_stat"
-            app:layout_constraintTop_toTopOf="parent"
-            android:textAlignment="center"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list_stat"
@@ -54,6 +56,7 @@
         <Button
             android:id="@+id/btn_clear"
             android:layout_width="0dp"
+            style="@style/Button"
             android:layout_height="wrap_content"
             android:text="@string/clear"
             app:layout_constraintBottom_toBottomOf="parent"

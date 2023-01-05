@@ -9,7 +9,7 @@ class Repair (
     var repairId: Long = 0L,
 
     @ColumnInfo(name = "date_repair")
-    val dateOfRepair: Long = System.currentTimeMillis(),
+    val dateOfRepair: String = "",
 
     @ColumnInfo(name = "cost_repair")
     val costOfRepair: Int = 0,
