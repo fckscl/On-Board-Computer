@@ -46,7 +46,6 @@ class RecordingFragment : Fragment() {
         binding.lifecycleOwner = this
 
         binding.btnUpdate.setOnClickListener {
-            val today = Calendar.getInstance()
             val datePicker = binding.datePicker
 
             viewModel.add(binding.editTextTextRepairName.text.toString(),

@@ -4,25 +4,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 //import androidx.core.content.res.TypedArrayUtils.getString
 import androidx.recyclerview.widget.RecyclerView
 import com.example.on_boardcomputer.R
 import com.example.on_boardcomputer.database.AverageStat
+import com.example.on_boardcomputer.databinding.ListItemStatBinding
 import com.example.on_boardcomputer.util.convertLongToDateString
 
 //import com.example.on_boardcomputer.util.TextItemViewHolder
 
-class AverageStatAdapter(val clickListener:AverageStatListener): RecyclerView.Adapter<AverageStatAdapter.ViewHolder> (){
-    var data = listOf<AverageStat>()
-    set(value) {
-        field = value
-        notifyDataSetChanged()
-    }
-
-    override fun getItemCount() = data.size
+class AverageStatAdapter : ListAdapter<AverageStat, AverageStatAdapter.ViewHolder>(AverageStatDiffCallback()){
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = data[position]
+        val item = getItem(position)
         holder.bind(item)
 
 //TODO: Upgrade view holder
@@ -32,13 +28,12 @@ class AverageStatAdapter(val clickListener:AverageStatListener): RecyclerView.Ad
         return ViewHolder.from(parent)
     }
 
-    class ViewHolder private constructor(itemView: View): RecyclerView.ViewHolder(itemView){
-        val startTime: TextView = itemView.findViewById(R.id.startTime)
-        val endTime: TextView = itemView.findViewById(R.id.endTime)
-//        val duration: TextView = itemView.findViewById(R.id.duration)
-        val averageOnBoard: TextView = itemView.findViewById(R.id.averageOnBoard)
-        val averageEngine: TextView = itemView.findViewById(R.id.averageEngine)
-        val averageVoltage: TextView = itemView.findViewById(R.id.averageVoltage)
+    class ViewHolder private constructor(val binding: ListItemStatBinding): RecyclerView.ViewHolder(binding.root){
+        val startTime: TextView = binding.startTime
+        val endTime: TextView = binding.endTime
+        val averageOnBoard: TextView = binding.averageOnBoard
+        val averageEngine: TextView = binding.averageEngine
+        val averageVoltage: TextView = binding.averageVoltage
 
         fun bind(
             item: AverageStat
@@ -53,17 +48,24 @@ class AverageStatAdapter(val clickListener:AverageStatListener): RecyclerView.Ad
         companion object {
             fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val view = layoutInflater
-                    .inflate(R.layout.list_item_stat, parent, false)
-                return ViewHolder(view)
+                val binding = ListItemStatBinding.inflate(layoutInflater, parent, false)
+                return ViewHolder(binding)
             }
         }
     }
-
-
-
 }
 
 class AverageStatListener(val clickListener: (statId: Long) -> Unit) {
     fun onClick(stat: AverageStat) = clickListener(stat.statId)
+}
+
+class AverageStatDiffCallback :
+    DiffUtil.ItemCallback<AverageStat>() {
+    override fun areItemsTheSame(oldItem: AverageStat, newItem: AverageStat): Boolean {
+        return oldItem.statId == newItem.statId
+    }
+
+    override fun areContentsTheSame(oldItem: AverageStat, newItem: AverageStat): Boolean {
+        return oldItem == newItem
+    }
 }

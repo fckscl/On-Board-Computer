@@ -3,9 +3,11 @@
 
     <data>
         <variable
+            name="stat"
+            type="com.example.on_boardcomputer.database.AverageStat" />
+        <variable
             name="clickListener"
             type="com.example.on_boardcomputer.ui.history.AverageStatListener">
-
         </variable>
     </data>
 
@@ -16,8 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         app:cardBackgroundColor="@color/secondary"
-        app:cardCornerRadius="10dp"
-        android:onClick="@{() -> clickListener.onClick()}">
+        app:cardCornerRadius="10dp">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
