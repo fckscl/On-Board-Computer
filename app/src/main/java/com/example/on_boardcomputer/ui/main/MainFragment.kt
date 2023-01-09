@@ -2,6 +2,7 @@ package com.example.on_boardcomputer.ui.main
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -33,9 +34,12 @@ class MainFragment : Fragment() {
             false
         )
         binding.toast.setOnClickListener{
-            Toast.makeText(context, "Hello Again", Toast.LENGTH_SHORT).show()
-            it.findNavController().navigate(R.id.action_main_to_fragment_display_state)
+//            Toast.makeText(context, "Hello Again", Toast.LENGTH_SHORT).show()
+//            it.findNavController().navigate(R.id.action_main_to_fragment_display_state)
+            Log.i("settings", it.toString())
+            Toast.makeText(context, "Device is not ready", Toast.LENGTH_SHORT).show()
         }
+//        setSupportActionBar(findViewById(R.id.my_toolbar))
         return binding.root
     }
 

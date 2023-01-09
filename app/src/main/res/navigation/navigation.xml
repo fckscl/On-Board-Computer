@@ -6,9 +6,13 @@
     app:startDestination="@id/main">
     <fragment
         android:id="@+id/fragment_display_state"
-        android:name="com.example.on_boardcomputer.DisplayStateFragment"
+        android:name="com.example.on_boardcomputer.ui.display.DisplayStateFragment"
         android:label="GameFragment"
-        tools:layout="@layout/fragment_display_state" />
+        tools:layout="@layout/fragment_display_state" >
+        <action
+            android:id="@+id/action_fragment_display_state_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/main"
         android:name="com.example.on_boardcomputer.ui.main.MainFragment"
@@ -17,5 +21,30 @@
         <action
             android:id="@+id/action_main_to_fragment_display_state"
             app:destination="@id/fragment_display_state" />
+        <action
+            android:id="@+id/action_main_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_main_to_historyFragment"
+            app:destination="@id/historyFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.on_boardcomputer.util.SettingsFragment"
+        android:label="SettingsFragment" />
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.example.on_boardcomputer.ui.history.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" />
+    <fragment
+        android:id="@+id/repairsFragment"
+        android:name="com.example.on_boardcomputer.ui.repair.RepairsFragment"
+        android:label="fragment_repairs"
+        tools:layout="@layout/fragment_repairs" />
+    <fragment
+        android:id="@+id/recordingFragment"
+        android:name="com.example.on_boardcomputer.ui.repair.RecordingFragment"
+        android:label="fragment_recording"
+        tools:layout="@layout/fragment_recording" />
 </navigation>

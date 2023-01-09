@@ -4,4 +4,51 @@
     <string name="temperature_engine">Engine Temperature:</string>
     <string name="voltage">Current Voltage:</string>
     <string name="zero">0</string>
+    <!-- Preference Titles -->
+    <string name="on_board">Temperature On-Board</string>
+    <string name="engine">Temperature Of Engine</string>
+    <string name="voltage_settings">Voltage</string>
+
+    <!-- Messages Preferences -->
+    <string name="minimum">Set Minimum value</string>
+    <string name="maximum">Set Maximum Value</string>
+
+    <!-- Sync Preferences -->
+<!--    <string name="sync_title">Sync email periodically</string>-->
+<!--    <string name="attachment_title">Download incoming attachments</string>-->
+<!--    <string name="attachment_summary_on">Automatically download attachments for incoming emails-->
+<!--    </string>-->
+<!--    <string name="attachment_summary_off">Only download attachments when manually requested</string>-->
+<!--    <string name="action_settings">Settings</string>-->
+    <string name="about">About</string>
+    <string name="stat">Stat</string>
+    <string name="settings">Settings</string>
+    <string name="history">History</string>
+    <string name="repairs">Repairs</string>
+
+    <string name="start">Start</string>
+    <string name="end">Finish</string>
+    <string name="start_time">Start time: </string>
+    <string name="end_time">End time: </string>
+
+    <string name="last">History of last measurements:</string>
+    <string name="start_measuring">Start of measurement: </string>
+    <string name="end_measuring">End of measurement: </string>
+    <string name="average_voltage">Average Voltage: </string>
+    <string name="average_on_board">Average Temperature On Board: </string>
+    <string name="average_engine">Average Temperature Of Engine: </string>
+    <string name="time_measuring">Time Of Measurement: </string>
+    <string name="clear">Delete All Measurements</string>
+    <string name="last_record">Update Last Record</string>
+    <string name="data">Date Of Repair:</string>
+    <string name="price">Cost Of Repair:</string>
+    <string name="update">Update</string>
+    <string name="name">Type of Repair:</string>
+    <string name="time">Measuring Time</string>
+    <string name="stats">Average Stats:</string>
+    <string name="history_repairs">History Of Last Repairs</string>
+    <string name="add_repair">Add New Repair</string>
+    <string name="connect">Connect</string>
+    <string name="greetings">Hello! With this app you can watch for your car to broke. To start press the button below!</string>
+
 </resources>
