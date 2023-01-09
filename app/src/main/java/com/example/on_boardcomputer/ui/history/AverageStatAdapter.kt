@@ -25,11 +25,11 @@ class AverageStatAdapter: RecyclerView.Adapter<AverageStatAdapter.ViewHolder> ()
         val item = data[position]
         holder.startTime.text = convertLongToDateString(item.startMeasuringMilli)
         holder.endTime.text = convertLongToDateString(item.endMeasuringMilli)
-        val diff = item.endMeasuringMilli.minus(item.startMeasuringMilli)
-        holder.duration.text = String.format("%d:%d:%d", diff / 1000 / 60 / 60, diff / 1000 / 60, diff / 1000)
-        holder.averageEngine.text = String.format("Engine: %.3f", item.midEngine)
-        holder.averageOnBoard.text = String.format("OnBoard: %.3f", item.midOnBoard)
-        holder.averageVoltage.text = String.format("Voltage: %.3f", item.midVoltage)
+//        val diff = item.endMeasuringMilli.minus(item.startMeasuringMilli)
+//        holder.duration.text = String.format("%d:%d:%d", diff / 1000 / 60 / 60, diff / 1000 / 60, diff / 1000)
+        holder.averageEngine.text = String.format("%.3f C", item.midEngine)
+        holder.averageOnBoard.text = String.format("%.3f C", item.midOnBoard)
+        holder.averageVoltage.text = String.format("%.3f V", item.midVoltage)
 //TODO: Upgrade view holder
     }
 
@@ -43,7 +43,7 @@ class AverageStatAdapter: RecyclerView.Adapter<AverageStatAdapter.ViewHolder> ()
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val startTime: TextView = itemView.findViewById(R.id.startTime)
         val endTime: TextView = itemView.findViewById(R.id.endTime)
-        val duration: TextView = itemView.findViewById(R.id.duration)
+//        val duration: TextView = itemView.findViewById(R.id.duration)
         val averageOnBoard: TextView = itemView.findViewById(R.id.averageOnBoard)
         val averageEngine: TextView = itemView.findViewById(R.id.averageEngine)
         val averageVoltage: TextView = itemView.findViewById(R.id.averageVoltage)

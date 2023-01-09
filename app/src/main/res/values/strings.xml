@@ -27,7 +27,9 @@
     <string name="repairs">Repairs</string>
 
     <string name="start">Start</string>
-    <string name="end">End</string>
+    <string name="end">Finish</string>
+    <string name="start_time">Start time: </string>
+    <string name="end_time">End time: </string>
 
     <string name="last">History of last measurements:</string>
     <string name="start_measuring">Start of measurement: </string>
