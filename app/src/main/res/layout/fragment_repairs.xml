@@ -13,7 +13,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:backgroundTint="@color/secondary"
+            android:backgroundTint="@color/secondary_variant"
             android:contentDescription="@string/add_repair"
             android:src="@drawable/iconmonstr_plus_lined"
             app:layout_constraintBottom_toBottomOf="parent"
