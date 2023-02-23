@@ -24,36 +24,36 @@
             style="@style/SubText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:text="@string/data"
+            app:layout_constraintBottom_toBottomOf="@+id/datePicker"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/datePicker" />
 
         <TextView
             android:id="@+id/new_price"
             style="@style/SubText"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="8dp"
             android:text="@string/price"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextCost"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/datePicker" />
+            app:layout_constraintTop_toTopOf="@+id/editTextCost" />
 
         <EditText
             android:id="@+id/editTextCost"
             style="@style/RepairValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
             android:ems="10"
             android:inputType="number"
             android:minHeight="48dp"
             android:text="0"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/new_price"
-            app:layout_constraintTop_toTopOf="@+id/new_price" />
+            app:layout_constraintTop_toBottomOf="@+id/datePicker" />
 
         <Button
             android:id="@+id/btn_update"
@@ -73,37 +73,36 @@
             style="@style/SubText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="8dp"
             android:text="@string/name"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextTextRepairName"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/header" />
+            app:layout_constraintTop_toTopOf="@+id/editTextTextRepairName" />
 
         <EditText
             android:id="@+id/editTextTextRepairName"
             style="@style/RepairValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
             android:ems="10"
             android:hint="Name"
             android:inputType="textPersonName"
             android:minHeight="48dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/name"
-            app:layout_constraintTop_toTopOf="@+id/name" />
+            app:layout_constraintTop_toBottomOf="@+id/header" />
 
         <DatePicker
             android:id="@+id/datePicker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
             android:animateLayoutChanges="true"
             android:calendarViewShown="false"
             android:datePickerMode="spinner"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/new_data"
             app:layout_constraintTop_toBottomOf="@+id/editTextTextRepairName" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
