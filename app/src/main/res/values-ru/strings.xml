@@ -43,5 +43,6 @@
     <string name="add_repair">Добавить новый ремонт</string>
     <string name="connect">Подключиться</string>
     <string name="greetings">Здравствуй! С этим приложением ты можешь наблюдать за своим автомобилем. Нажми кнопку внизу, чтобы подключиться к бортовом компьютеру.</string>
+    <string name="sum">Сумма трат</string>
 
 </resources>

@@ -20,16 +20,10 @@ class RepairsFragment : Fragment() {
 
     private lateinit var binding: FragmentRepairsBinding
 
-    companion object {
-        fun newInstance() = RepairsFragment()
-    }
-
-    private lateinit var viewModel: RepairsViewModel
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val application = requireNotNull(this.activity).application
         val dataSource = StatDatabase.getInstance(application).repairDatabaseDao
         val viewModelFactory = RepairsViewModelFactory(dataSource, application)
@@ -45,6 +39,7 @@ class RepairsFragment : Fragment() {
         )
         binding.lifecycleOwner = this
 
+        binding.sum.text = viewModel.sum.toString()
         val adapter = RepairsAdapter()
         binding.listRepairs.adapter = adapter
 //        adapter.data = viewModel.dataSource.getAll().value ?: listOf(Repair(nameOfRepair = "name", dateOfRepair = 123, costOfRepair = 11))
@@ -54,7 +49,6 @@ class RepairsFragment : Fragment() {
                 adapter.data = it
             }
         })
-
 
         binding.btnAdd.setOnClickListener {
             it.findNavController().navigate(R.id.recordingFragment)

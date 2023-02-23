@@ -2,6 +2,7 @@ package com.example.on_boardcomputer.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.databinding.DataBindingUtil
@@ -36,15 +37,17 @@ class MainActivity : AppCompatActivity() {
                 {
                     0 -> R.id.main
                     1 -> R.id.fragment_display_state
-                    3 -> R.id.repairsFragment
                     2 -> R.id.historyFragment
+                    3 -> R.id.repairsFragment
                     else -> R.id.main
                 })
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {}
 
-            override fun onTabReselected(tab: TabLayout.Tab?) {}
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+                this.onTabSelected(tab!!)
+            }
         })
 
     }

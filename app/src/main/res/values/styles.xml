@@ -37,13 +37,12 @@
         <item name="android:textColor">@color/on_secondary</item>
     </style>
 
-    <style name="Button" parent="ThemeOverlay.Material3.Button">
+    <style name="Button">
         <item name="android:textSize">22sp</item>
         <item name="android:fontFamily">@font/open_sans_semibold</item>
-        <item name="android:backgroundTint">@color/secondary</item>
         <item name="android:shape">@drawable/round_button</item>
+        <item name="android:backgroundTint">@color/secondary_variant</item>
         <item name="android:textColor">@color/on_secondary</item>
-<!--        <item name="borderRound">10dp</item>-->
     </style>
 
 </resources>
