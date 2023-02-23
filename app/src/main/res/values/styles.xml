@@ -4,6 +4,19 @@
     <style name="MainText">
         <item name="android:textSize">22sp</item>
         <item name="fontFamily">@font/open_sans_semibold</item>
+        <item name="android:textColor">@color/primary_variant</item>
+    </style>
+
+    <style name="SubText">
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/open_sans_semibold</item>
+        <item name="android:textColor">@color/primary_variant</item>
+    </style>
+
+    <style name="RepairValue">
+        <item name="android:textSize">18sp</item>
+        <item name="fontFamily">@font/open_sans_semibold</item>
+        <item name="android:textColor">@color/secondary</item>
     </style>
 
     <style name="Header">
@@ -12,13 +25,24 @@
         <item name="android:textColor">@color/primary_variant</item>
     </style>
 
+    <style name="CardMain">
+        <item name="android:textSize">26sp</item>
+        <item name="fontFamily">@font/open_sans_semibold</item>
+        <item name="android:textColor">@color/on_secondary</item>
+    </style>
+
+    <style name="CardValue">
+        <item name="android:textSize">18sp</item>
+        <item name="fontFamily">@font/open_sans_semibold</item>
+        <item name="android:textColor">@color/on_secondary</item>
+    </style>
+
     <style name="Button">
         <item name="android:textSize">22sp</item>
         <item name="android:fontFamily">@font/open_sans_semibold</item>
-        <item name="android:backgroundTint">@color/secondary</item>
-        <item name="android:background">@drawable/round_button</item>
+        <item name="android:shape">@drawable/round_button</item>
+        <item name="android:backgroundTint">@color/secondary_variant</item>
         <item name="android:textColor">@color/on_secondary</item>
-        <item name="borderRound">10dp</item>
-
     </style>
+
 </resources>

@@ -21,6 +21,7 @@
 
         <TextView
             android:id="@+id/new_data"
+            style="@style/SubText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -30,6 +31,7 @@
 
         <TextView
             android:id="@+id/new_price"
+            style="@style/SubText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -40,6 +42,7 @@
 
         <EditText
             android:id="@+id/editTextCost"
+            style="@style/RepairValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -54,10 +57,12 @@
 
         <Button
             android:id="@+id/btn_update"
-            android:layout_width="0dp"
             style="@style/Button"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
             android:text="@string/update"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -65,6 +70,7 @@
 
         <TextView
             android:id="@+id/name"
+            style="@style/SubText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -75,14 +81,15 @@
 
         <EditText
             android:id="@+id/editTextTextRepairName"
+            style="@style/RepairValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:ems="10"
+            android:hint="Name"
             android:inputType="textPersonName"
             android:minHeight="48dp"
-            android:text="Name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/name"
             app:layout_constraintTop_toTopOf="@+id/name" />
@@ -92,6 +99,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:animateLayoutChanges="true"
             android:calendarViewShown="false"
             android:datePickerMode="spinner"
             app:layout_constraintEnd_toEndOf="parent"
