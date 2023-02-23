@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">Бортовой компьютер</string>
+    <string name="temperature_on_board">Температура в салоне: </string>
+    <string name="temperature_engine">Температура двигателя: </string>
+    <string name="voltage">Напряжение аккумулятора: </string>
+    <string name="zero">0</string>
+    <!-- Preference Titles -->
+    <string name="on_board">Температура в салоне</string>
+    <string name="engine">Температура двигателя</string>
+    <string name="voltage_settings">Напряжение аккумулятора</string>
+
+    <!-- Messages Preferences -->
+    <string name="minimum">Задать минимальное значение</string>
+    <string name="maximum">Задать максимальное значение</string>
+
+    <string name="about">Главная</string>
+    <string name="stat">Измерения</string>
+    <string name="settings">Настройки</string>
+    <string name="history">История</string>
+    <string name="repairs">Ремонты</string>
+
+    <string name="end">Закончить</string>
+    <string name="start">Начать</string>
+    <string name="end_time">Конец: </string>
+    <string name="start_time">Начало: </string>
+
+    <string name="last">История снятых показаний:</string>
+    <string name="start_measuring">Начало измерения: </string>
+    <string name="end_measuring">Конец измерения: </string>
+    <string name="average_voltage">Среднее напряжение: </string>
+    <string name="average_on_board">Average Temperature On Board: </string>
+    <string name="average_engine">Average Temperature Of Engine: </string>
+    <string name="time_measuring">Время измерения: </string>
+    <string name="clear">Очистить историю измерений</string>
+    <string name="last_record">Добавить новый ремонт</string>
+    <string name="data">Дата ремонта:</string>
+    <string name="price">Стоимость ремонта:</string>
+    <string name="update">Записать</string>
+    <string name="name">Название ремонта:</string>
+    <string name="time">Время измерения</string>
+    <string name="stats">Средние значения:</string>
+    <string name="history_repairs">История последних ремонтов</string>
+    <string name="add_repair">Добавить новый ремонт</string>
+    <string name="connect">Подключиться</string>
+    <string name="greetings">Здравствуй! С этим приложением ты можешь наблюдать за своим автомобилем. Нажми кнопку внизу, чтобы подключиться к бортовом компьютеру.</string>
+    <string name="sum">Сумма трат</string>
+
+</resources>
