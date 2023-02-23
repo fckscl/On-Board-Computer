@@ -1,0 +1,64 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        app:icon="@drawable/iconmonstr_weather_134"
+        app:layout="@layout/preferences_main"
+        app:title="@string/on_board">
+
+        <EditTextPreference
+            app:defaultValue="10"
+            app:key="min_on_board"
+            app:title="@string/minimum"
+            app:useSimpleSummaryProvider="true" />
+
+        <EditTextPreference
+            app:defaultValue="30"
+            app:key="max_on_board"
+            app:title="@string/maximum"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:allowDividerAbove="true"
+        app:allowDividerBelow="true"
+        app:icon="@drawable/engine_motor_svgrepo_com"
+        app:title="@string/engine">
+
+        <EditTextPreference
+            app:defaultValue="90"
+            app:key="min_engine"
+            app:title="@string/minimum"
+            app:useSimpleSummaryProvider="true" />
+
+        <EditTextPreference
+            app:defaultValue="130"
+            app:key="max_engine"
+            app:title="@string/maximum"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:allowDividerAbove="true"
+        app:allowDividerBelow="true"
+        app:icon="@drawable/iconmonstr_battery_33"
+        app:iconSpaceReserved="false"
+        app:singleLineTitle="true"
+        app:title="@string/voltage_settings">
+
+        <EditTextPreference
+            app:defaultValue="10"
+            app:key="min_voltage"
+            app:title="@string/minimum"
+            app:useSimpleSummaryProvider="true" />
+
+        <EditTextPreference
+            app:defaultValue="200"
+            app:key="max_voltage"
+            app:title="@string/maximum"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
