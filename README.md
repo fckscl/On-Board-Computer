@@ -1,4 +1,4 @@
-<h1 align="center">Добрый день! Я <a href="https://daniilshat.ru/" target="_blank">Дмитрий Пугач</a> 
+<h1 align="center">Добрый день! Я Дмитрий Пугач
 <img src="https://github.com/blackcater/blackcater/raw/main/images/Hi.gif" height="32"/></h1>
 <h3 align="center">Выпускник МРК</h3>
 Данное мобильное приложение позволяет дистанционно управлять бортовым компьютером, подключившись к нему по Bluetooth. 
@@ -21,6 +21,5 @@
 <img src="https://user-images.githubusercontent.com/99506536/221130483-343737c2-90b4-44a5-a91d-4a6a49593ce4.png" alt="альтернативный текст" width="300px" height="auto">
 <img src="https://user-images.githubusercontent.com/99506536/221130502-04698846-c96a-4fae-b3c0-c587e055d4cf.png" alt="альтернативный текст" width="300px" height="auto">
 <img src="https://user-images.githubusercontent.com/99506536/221130521-3a660aa7-ad4f-499a-b91d-e1d9c0e52c3d.png" alt="альтернативный текст" width="300px" height="auto">
-
 </div>
 
