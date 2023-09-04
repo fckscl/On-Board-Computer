@@ -14,7 +14,7 @@
 <img src="https://user-images.githubusercontent.com/99506536/221130521-3a660aa7-ad4f-499a-b91d-e1d9c0e52c3d.png" alt="альтернативный текст" width="300px" height="auto">
 </div>
 <br>
-[Презентация по теме.pdf](https://github.com/fckscl/On-Board-Computer/files/10822083/default.pdf)
+[Презентация по теме](https://github.com/fckscl/On-Board-Computer/files/10822083/default.pdf)
 <br>
 <br>
 
