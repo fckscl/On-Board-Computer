@@ -3,15 +3,6 @@
 <h3 align="center">Выпускник МРК</h3>
 Данное мобильное приложение позволяет дистанционно управлять бортовым компьютером, подключившись к нему по Bluetooth. 
 Установочный apk файл находится в ветке install.
-
-![image](https://user-images.githubusercontent.com/99506536/221039474-cff12c72-f9be-4458-a1d8-c3b717a3f250.png)
-![image](https://user-images.githubusercontent.com/99506536/221039846-fc113fde-5dee-4dcc-8971-a123fa8fc4c0.png)
-![image](https://user-images.githubusercontent.com/99506536/221040002-d6108074-377d-4eff-bdaa-80c9b8391d59.png)
-
-Скачанный файл необходимо установить из файловой системы устройства. 
-
-[Презентация по теме.pdf](https://github.com/fckscl/On-Board-Computer/files/10822083/default.pdf)
-
 <h3 align="center">Интерфейс приложения</h3>
 
 <div align="center">
@@ -22,4 +13,18 @@
 <img src="https://user-images.githubusercontent.com/99506536/221130502-04698846-c96a-4fae-b3c0-c587e055d4cf.png" alt="альтернативный текст" width="300px" height="auto">
 <img src="https://user-images.githubusercontent.com/99506536/221130521-3a660aa7-ad4f-499a-b91d-e1d9c0e52c3d.png" alt="альтернативный текст" width="300px" height="auto">
 </div>
+<br>
+[Презентация по теме.pdf](https://github.com/fckscl/On-Board-Computer/files/10822083/default.pdf)
+<br>
+<br>
+
+
+![image](https://user-images.githubusercontent.com/99506536/221039474-cff12c72-f9be-4458-a1d8-c3b717a3f250.png)
+![image](https://user-images.githubusercontent.com/99506536/221039846-fc113fde-5dee-4dcc-8971-a123fa8fc4c0.png)
+![image](https://user-images.githubusercontent.com/99506536/221040002-d6108074-377d-4eff-bdaa-80c9b8391d59.png)
+
+Скачанный файл необходимо установить из файловой системы устройства. 
+
+
+
 
